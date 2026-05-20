@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>농식품부 5급 역량 리마인드 1편 - 기획력</title>
+  <meta name="description" content="농림축산식품부 5급 역량평가 수료자를 위한 전략적 기획력 리마인드 인터랙티브 학습 페이지입니다.">
+  
+  <!-- 구글 폰트 적용 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* 디자인 시스템 및 공통 스타일 */
+    :root {
+      --bg-gradient: linear-gradient(135deg, #0a1128 0%, #101f42 100%);
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #2e7eff;
+      --primary-glow: rgba(46, 126, 255, 0.4);
+      --accent: #00f2fe;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --success: #10b981;
+      --error: #ef4444;
+      --font-ko: 'Noto Sans KR', sans-serif;
+      --font-en: 'Outfit', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-ko);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: #070d1e;
+      background-image: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* 컨테이너 */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* 헤더 / 히어로 섹션 */
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+      padding: 40px 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(46, 126, 255, 0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(46, 126, 255, 0.2);
+      border: 1px solid var(--primary);
+      color: var(--accent);
+      font-family: var(--font-en);
+      font-size: 13px;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(46, 126, 255, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(46, 126, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(46, 126, 255, 0); }
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    h1 span {
+      background: linear-gradient(to right, #00f2fe, #4facfe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* 네비게이션 탭 */
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 6px;
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      flex: 1;
+      text-align: center;
+    }
+
+    .tab-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .tab-btn.active {
+      color: #ffffff;
+      background: var(--primary);
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
+
+    /* 콘텐츠 카드 영역 */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 4px solid var(--primary);
+      padding-left: 12px;
+    }
+
+    /* 역량 정의 스타일 */
+    .def-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .def-grid { grid-template-columns: 1fr; }
+    }
+
+    .def-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .def-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(46, 126, 255, 0.4);
+      background: rgba(46, 126, 255, 0.03);
+    }
+
+    .def-card h3 {
+      font-size: 18px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .def-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* 테이블 스타일 */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background: rgba(46, 126, 255, 0.1);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--card-border);
+      color: var(--text-main);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .achievement-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .tag-low {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--error);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .tag-mid {
+      background: rgba(245, 158, 11, 0.15);
+      color: #f59e0b;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    /* 데이터 대시보드 그리드 */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-family: var(--font-en);
+      font-size: 28px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .stat-val.red { color: var(--error); }
+    .stat-val.blue { color: var(--primary); }
+
+    .stat-lbl {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* 퀴즈 스타일 */
+    .quiz-container {
+      margin-top: 15px;
+    }
+
+    .quiz-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .quiz-q {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 14px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .option-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--text-muted);
+    }
+
+    .option-btn.selected {
+      border-color: var(--primary);
+      background: rgba(46, 126, 255, 0.1);
+    }
+
+    .quiz-feedback {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.6;
+      display: none;
+    }
+
+    .feedback-correct {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .feedback-wrong {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--error);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    .action-btn-container {
+      margin-top: 16px;
+      text-align: right;
+    }
+
+    .submit-quiz {
+      background: var(--primary);
+      border: none;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .submit-quiz:hover {
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+
+    /* 체크리스트 스타일 */
+    .check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .check-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .check-item.checked {
+      background: rgba(16, 185, 129, 0.05);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .check-box {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 2px solid var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: all 0.2s ease;
+    }
+
+    .check-item.checked .check-box {
+      border-color: var(--success);
+      background: var(--success);
+    }
+
+    .check-box::after {
+      content: '✓';
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 900;
+      display: none;
+    }
+
+    .check-item.checked .check-box::after {
+      display: block;
+    }
+
+    .check-text h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .check-item.checked .check-text h4 {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .check-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* 푸터 */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid var(--card-border);
+      padding-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  
+  <!-- 헤더 / 히어로 -->
+  <header>
+    <span class="badge">Remind Series 01</span>
+    <h1>농식품부 5급 역량 리마인드 ➔ <span>기획력</span></h1>
+    <p class="subtitle">기후변화와 농촌 소멸 등의 대내외 정책 환경 변화 속에서, 객관적인 데이터 분석에 입각한 합리적인 나침반을 세우는 핵심 역량.</p>
+  </header>
+
+  <!-- 네비게이션 탭 -->
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="switchTab('concept')" id="tab-concept">1. 역량 개념</button>
+    <button class="tab-btn" onclick="switchTab('case')" id="tab-case">2. 농지은행 분석 사례</button>
+    <button class="tab-btn" onclick="switchTab('quiz')" id="tab-quiz">3. 복습 퀴즈</button>
+    <button class="tab-btn" onclick="switchTab('checklist')" id="tab-checklist">4. 기획 자가진단</button>
+  </div>
+
+  <!-- 1번 탭: 역량 개념 -->
+  <div id="content-concept" class="tab-content active">
+    <div class="card">
+      <div class="card-title">기획력 (Strategic Planning)의 정의</div>
+      <p style="margin-bottom: 20px; font-size: 15px; line-height: 1.8; color: var(--text-main);">
+        정부부처 사무관에게 요구되는 가장 중요한 자질 중 하나로, <strong>조직의 내·외부 환경 변화 상황을 다각적이고 체계적으로 분석</strong>하여 문제의 핵심 및 개선 필요성을 정확히 파악하고, 이를 바탕으로 정책 목표에 부합하는 실행 대안들의 <strong>우선순위를 정하여 실효성 높은 전략적 방향성을 설계</strong>하는 역량입니다.
+      </p>
+      
+      <div class="def-grid">
+        <div class="def-card">
+          <h3>① 환경 분석 능력</h3>
+          <p>정책 수립의 기본이 되는 단계입니다. 법률, 통계, 이해관계자 인터뷰, 보도자료 등 상반되거나 복잡한 자료를 종합적으로 수집·분석하여 현재 정책 시스템의 주요 문제점과 향후 위기·기회 요소를 정확하게 추출해내는 힘입니다.</p>
+        </div>
+        <div class="def-card">
+          <h3>② 전략방향 수립 능력</h3>
+          <p>도출된 분석 결과를 근간으로 하여 최우선 해결 과제를 선택합니다. 현실적인 자원(예산, 인력)과 이해관계자의 수용성을 고려해 구체적이고 실현 가능한 단기적 즉시 개선 과제와 중장기적 제도 고도화 과제의 우선순위를 설계합니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2번 탭: 농지은행 분석 사례 -->
+  <div id="content-case" class="tab-content">
+    <div class="card">
+      <div class="card-title">사례 연구: 농지은행제도 운영 개선 방안</div>
+      <p style="margin-bottom: 24px; font-size: 14px; color: var(--text-muted);">
+        * 5급 역량평가에 기출된 시나리오 데이터를 구조화한 내용입니다. 연 2.5조 원 이상의 예산이 투입되는 농지은행제도의 현주소를 체계적으로 분석하여 기획의 나침반을 설계해 보세요.
+      </p>
+
+      <!-- 핵심 데이터 대시보드 -->
+      <h3 style="font-size: 16px; margin-bottom: 12px; color: #ffffff;">핵심 목표 달성 지표 (2035년 분석 기준)</h3>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-val red">35%</div>
+          <div class="stat-lbl">대농가(상위 10%)<br>농지 공급 쏠림률</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val red">28%</div>
+          <div class="stat-lbl">소농 지원 비중<br>(목표 40% 대비 12%p↓)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val red">41%</div>
+          <div class="stat-lbl">친환경 농가 지원<br>(목표 60% 대비 19%p↓)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val red">3.2%</div>
+          <div class="stat-lbl">청년농 지원 비중<br>(목표 10% 대비 6.8%p↓)</div>
+        </div>
+      </div>
+
+      <!-- 문제구조 분석 테이블 -->
+      <h3 style="font-size: 16px; margin-bottom: 12px; color: #ffffff; margin-top: 30px;">농지은행 운영 환경 분석 요약</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">분석 영역</th>
+              <th style="width: 40%;">현상 및 대내외 요인</th>
+              <th style="width: 35%;">전략적 대응 방향</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>대외 환경 요인 (External)</strong></td>
+              <td>
+                • 농가 고령화 급증 (65세 이상 49% 돌파)<br>
+                • 청년 농업인의 신규 진입 장벽 존재<br>
+                • EU CAP(공동농업정책)의 공익·환경 지향적 전환 트렌드
+              </td>
+              <td>
+                • 청년농 특화 매입·임대 지원 방식 강화<br>
+                • 친환경 및 탄소중립 실천 농업을 유도하는 인센티브 제도 개편
+              </td>
+            </tr>
+            <tr>
+              <td><strong>대내 한계 요인 (Internal)</strong></td>
+              <td>
+                • 제도 혜택의 양극화 (상위 10% 대농이 공급 농지의 35% 독식)<br>
+                • 친환경 실적 미진 (목표 60% 대비 41% 수준)<br>
+                • 소농 및 신규 유입자 대상 맞춤형 상품 부족
+              </td>
+              <td>
+                • 농지 공급 상한선 규정 수립<br>
+                • 소농(0.5ha 이하)에 대한 우대 가점 및 임대 수수료 인하<br>
+                • 친환경 농지 임대 지원 풀 확대
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3번 탭: 복습 퀴즈 -->
+  <div id="content-quiz" class="tab-content">
+    <div class="card">
+      <div class="card-title">기획력 실전 복습 퀴즈</div>
+      <p style="margin-bottom: 24px; font-size: 14px; color: var(--text-muted);">
+        실제 기획보고서 및 역량평가 시나리오에 응용되는 문제를 풀고 즉시 피드백을 확인해 보세요.
+      </p>
+
+      <div class="quiz-container">
+        
+        <!-- 문제 1 -->
+        <div class="quiz-item" id="q1">
+          <div class="quiz-q">Q1. 기획보고서 작성 시 내외부 환경 분석에 기반하지 않고, 과거의 우수 사례나 인접 부서의 기존 추진안을 그대로 차용하여 전략방향을 도출하는 기획 프로세스는 역량평가에서 긍정적으로 평가받는다.</div>
+          <div class="quiz-options">
+            <button class="option-btn" onclick="selectOption('q1', 'O')">O (그렇다)</button>
+            <button class="option-btn" onclick="selectOption('q1', 'X')">X (아니다)</button>
+          </div>
+          <div class="action-btn-container">
+            <button class="submit-quiz" onclick="checkAnswer('q1', 'X', '환경 분석과 대안 간의 논리적 긴밀성(Alignment)은 기획력의 핵심입니다. 주어진 텍스트와 객관적 지표에 기반한 맞춤형 환경 분석 없이 타 부서의 대안을 무작정 도입하는 것은 독창성 및 타당성이 부족하다고 평가되어 큰 감점 요인이 됩니다.')">정답 확인</button>
+          </div>
+          <div class="quiz-feedback" id="q1-feedback"></div>
+        </div>
+
+        <!-- 문제 2 -->
+        <div class="quiz-item" id="q2">
+          <div class="quiz-q">Q2. 농지은행제도 개선안 기획 시 소농(0.5ha 이하) 지원 목표 비중인 40%에 현 실적(28%)이 크게 미치지 못하고 있을 때, 우선적으로 검토해야 하는 전략으로 가장 적절하지 않은 것은?</div>
+          <div class="quiz-options">
+            <button class="option-btn" onclick="selectOption('q2', 'A')">A. 임대료 수수료 인하 및 소농 대상 지원 가점 신설</button>
+            <button class="option-btn" onclick="selectOption('q2', 'B')">B. 대농 중심의 예산 일시 집행 및 상위 10% 지원 한도 폐지</button>
+            <button class="option-btn" onclick="selectOption('q2', 'C')">C. 0.5ha 미만 소농 대상의 전용 농지 포트폴리오 다각화</button>
+          </div>
+          <div class="action-btn-container">
+            <button class="submit-quiz" onclick="checkAnswer('q2', 'B', '대농 중심의 양극화(상위 10%가 35% 점유)는 본 제도 운영의 핵심 한계 요인 중 하나입니다. 지원 한도를 폐지하거나 예산을 대농에 추가 집행하는 것은 소농 지원 비율(28%)을 한층 더 악화시키는 대안이 되므로 부적절합니다.')">정답 확인</button>
+          </div>
+          <div class="quiz-feedback" id="q2-feedback"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 4번 탭: 기획 자가진단 -->
+  <div id="content-checklist" class="tab-content">
+    <div class="card">
+      <div class="card-title">현업 기획 프로세스 자가 진단 (Checklist)</div>
+      <p style="margin-bottom: 24px; font-size: 14px; color: var(--text-muted);">
+        현업에서 기획 업무를 수행하기 전, 아래 항목들을 체크하며 기획력의 완성도를 점검해 보세요.
+      </p>
+
+      <div class="check-list">
+        
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">
+            <h4>1. 내외부 통계 및 보도자료를 다각도로 대조하였는가?</h4>
+            <p>특정 이해관계자의 단편적인 의견이나 제한된 수치의 자료에 치우쳐 현상을 오독하지 않았는지 검토합니다.</p>
+          </div>
+        </div>
+
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">
+            <h4>2. 문제의 '원인'과 '현상'을 뚜렷이 구별하여 기술하였는가?</h4>
+            <p>단순한 실적 저조라는 현상 뒤에 가려진 제도적 유인 부족, 절차적 복잡성 등 근본 원인을 파악해야 합니다.</p>
+          </div>
+        </div>
+
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">
+            <h4>3. 도출된 대안들이 정책의 예산/인력 제약 내에서 실현 가능한가?</h4>
+            <p>아무리 훌륭한 전략일지라도 실행을 위한 연차별 예산 조달이나 조직 개편 타당성이 없다면 공염불이 될 수 있습니다.</p>
+          </div>
+        </div>
+
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-text">
+            <h4>4. 단기 즉시 조치 과제와 중장기 제도 보완 과제를 단계별로 배치하였는가?</h4>
+            <p>기획의 시급성과 효과성에 따라 실행 타임라인(Timeline)을 구분하여 정밀성을 높였는지 확인합니다.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 푸터 -->
+  <footer>
+    <p>본 메일 및 학습 자료는 농림축산식품부 5급 역량 교육의 일환으로 제작되었습니다.</p>
+    <p style="margin-top: 6px;">Copyright 2026. ASSESTA. All rights reserved.</p>
+  </footer>
+
+</div>
+
+<script>
+  // 탭 전환 기능
+  function switchTab(tabId) {
+    // 모든 탭 버튼 비활성화
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    // 모든 탭 콘텐츠 숨김
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(content => content.classList.remove('active'));
+
+    // 대상 탭 활성화
+    document.getElementById('tab-' + tabId).classList.add('active');
+    document.getElementById('content-' + tabId).classList.add('active');
+  }
+
+  // 퀴즈 옵션 선택 처리
+  const selections = {};
+
+  function selectOption(quizId, option) {
+    selections[quizId] = option;
+    
+    // 해당 퀴즈의 옵션 버튼들 하이라이트 제어
+    const quizItem = document.getElementById(quizId);
+    const buttons = quizItem.querySelectorAll('.option-btn');
+    buttons.forEach(btn => {
+      if (btn.innerText.startsWith(option)) {
+        btn.classList.add('selected');
+      } else {
+        btn.classList.remove('selected');
+      }
+    });
+  }
+
+  // 퀴즈 정답 검증 및 피드백 출력
+  function checkAnswer(quizId, correctAnswer, explanation) {
+    const userAns = selections[quizId];
+    const feedbackDiv = document.getElementById(quizId + '-feedback');
+
+    if (!userAns) {
+      alert('보기를 먼저 선택해 주세요!');
+      return;
+    }
+
+    feedbackDiv.style.display = 'block';
+
+    if (userAns === correctAnswer) {
+      feedbackDiv.className = 'quiz-feedback feedback-correct';
+      feedbackDiv.innerHTML = `<strong>정답입니다! 🎉</strong><br>${explanation}`;
+    } else {
+      feedbackDiv.className = 'quiz-feedback feedback-wrong';
+      feedbackDiv.innerHTML = `<strong>틀렸습니다. 다시 고민해 보세요! 🤔</strong><br>해설: ${explanation}`;
+    }
+  }
+
+  // 체크리스트 토글
+  function toggleCheck(element) {
+    element.classList.toggle('checked');
+  }
+</script>
+
+</body>
+</html>
